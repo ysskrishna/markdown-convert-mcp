@@ -8,7 +8,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and thi
 
 ### Added
 
-- README install and MCP setup for Cursor, Claude Desktop, and Claude Code
+- README install and MCP setup for Cursor, and Claude Code
 - npm package badge and link on README
 
 ### Changed
@@ -31,4 +31,5 @@ First stable release.
 - Input limits: whitespace-only input returns empty string; input over 200,000 characters returns a tool error (`isError: true`)
 - Converter failures returned as tool errors, not MCP transport failures
 
+[1.0.1]: https://github.com/ysskrishna/markdown-convert-mcp/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/ysskrishna/markdown-convert-mcp/releases/tag/v1.0.0
