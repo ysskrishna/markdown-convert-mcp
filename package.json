@@ -1,6 +1,6 @@
 {
   "name": "@ysskrishna/markdown-convert-mcp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "MCP server: convert Markdown to Slack, Teams, Jira, and plain text",
   "type": "module",
   "bin": {
