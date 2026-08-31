@@ -52,4 +52,5 @@ npm ci && npm run lint && npm run typecheck && npm test && npm run build
 - Emit MCP protocol errors for oversize markdown or converter throws (use `errorText` with `isError: true`).
 - Post to Slack/Teams/Jira from this server — convert-only.
 - Use `console.log` in server code.
-- Lead README install instructions with `npx` until the package is published.
+
+See [DEVELOPMENT.md](DEVELOPMENT.md) for local setup, CI, and release workflow.

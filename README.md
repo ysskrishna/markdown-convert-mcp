@@ -36,6 +36,21 @@ claude mcp add markdown-convert -- npx -y @ysskrishna/markdown-convert-mcp
 
 Add `-s user` to register for all projects. In a session, run `/mcp` to list tools.
 
+### Claude Desktop
+
+**Settings → Developer → Edit Config**, then restart Claude:
+
+```json
+{
+  "mcpServers": {
+    "markdown-convert": {
+      "command": "npx",
+      "args": ["-y", "@ysskrishna/markdown-convert-mcp"]
+    }
+  }
+}
+```
+
 ## Tools and next hops
 
 Each tool accepts `{ "markdown": "<source>" }` and returns converted text. Pick the tool that matches where the string will go next.
