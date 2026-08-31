@@ -1,14 +1,15 @@
 {
   "name": "@ysskrishna/markdown-convert-mcp",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
+  "description": "MCP server: convert Markdown to Slack, Teams, Jira, and plain text",
   "type": "module",
   "bin": {
     "markdown-convert-mcp": "dist/index.js"
   },
   "files": [
     "dist",
-    "LICENSE"
+    "LICENSE",
+    "README.md"
   ],
   "engines": {
     "node": ">=22"
@@ -34,5 +35,26 @@
     "typescript": "^5.7.0",
     "typescript-eslint": "^8.0.0",
     "vitest": "^3.0.0"
-  }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ysskrishna/markdown-convert-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ysskrishna/markdown-convert-mcp/issues"
+  },
+  "homepage": "https://github.com/ysskrishna/markdown-convert-mcp#readme",
+  "keywords": [
+    "mcp",
+    "markdown",
+    "slack",
+    "teams",
+    "jira",
+    "model-context-protocol"
+  ],
+  "author": "Y. Siva Sai Krishna",
+  "license": "MIT"
 }
