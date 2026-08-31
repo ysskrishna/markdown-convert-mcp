@@ -1,2 +1,5 @@
 #!/usr/bin/env node
-console.error('markdown-convert-mcp placeholder');
+import { serveStdio } from '@modelcontextprotocol/server/stdio';
+import { createServer } from './server.js';
+
+serveStdio(() => createServer());
