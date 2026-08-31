@@ -1,0 +1,41 @@
+name: Node quality checks
+description: Install dependencies, lint, typecheck, test, and build
+
+inputs:
+  node-version:
+    description: Node.js version
+    required: false
+    default: '22'
+
+runs:
+  using: composite
+  steps:
+    - name: Use Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ inputs.node-version }}
+        cache: npm
+
+    - name: Install dependencies
+      run: npm ci
+      shell: bash
+
+    - name: Lint
+      run: npm run lint
+      shell: bash
+
+    - name: Typecheck
+      run: npm run typecheck
+      shell: bash
+
+    - name: Test
+      run: npm test
+      shell: bash
+
+    - name: Build
+      run: npm run build
+      shell: bash
+
+    - name: Verify build output
+      run: test -f dist/index.js && node --check dist/index.js
+      shell: bash
