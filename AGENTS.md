@@ -28,27 +28,6 @@ Full checkpoint before merge:
 npm ci && npm run lint && npm run typecheck && npm test && npm run build
 ```
 
-## File map
-
-| Path | Responsibility |
-|------|----------------|
-| `package.json` / `package-lock.json` | Package metadata, scripts, engines, lockfile |
-| `tsconfig.json` | ESM NodeNext, `outDir: dist`, `rootDir: src` |
-| `src/index.ts` | Shebang, `serveStdio(() => createServer())` |
-| `src/server.ts` | `createServer()`, four `registerTool` handlers, `runConvert` |
-| `src/limits.ts` | `MAX_MARKDOWN_CHARS`, `prepareMarkdown()` |
-| `src/tool-result.ts` | `okText` / `errorText` helpers |
-| `src/converters/slack.ts` | `markdownToSlack` via `slackify-markdown` |
-| `src/converters/teams/styles.ts` | Teams inline CSS constants |
-| `src/converters/teams/html.ts` | `markdownToTeamsHtml` |
-| `src/converters/jira.ts` | `markdownToJira` (wiki markup) |
-| `src/converters/plaintext.ts` | `markdownToPlaintext` |
-| `tests/converters/*.test.ts` | Converter golden/mapping tests |
-| `tests/limits.test.ts` | Empty, trim, oversize |
-| `tests/server.test.ts` | Server wiring and `runConvert` errors |
-| `.github/workflows/ci.yml` | Lint, typecheck, test, build on PRs |
-| `README.md` | User install and next-hop documentation |
-
 ## Always
 
 - Run `npm test` (and the full checkpoint when changing behavior) before committing.
