@@ -19,6 +19,9 @@
     "lint": "eslint src tests",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
+    "test:e2e": "node scripts/e2e/slack-post.mjs && node scripts/e2e/jira-create.mjs",
+    "test:e2e:slack": "node scripts/e2e/slack-post.mjs",
+    "test:e2e:jira": "node scripts/e2e/jira-create.mjs",
     "build": "tsc"
   },
   "dependencies": {

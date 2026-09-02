@@ -14,7 +14,7 @@ integrators who want to validate real platform rendering.
 |-------|----------------|-------------|------------------|
 | **Unit** | Converter output is correct | None | `npm test` |
 | **MCP smoke** | Tools register and respond | None | MCP Inspector + `node dist/index.js` |
-| **E2E** | Output renders after real post | Your sandbox tokens | Platform MCP or scripts below |
+| **E2E** | Output renders after real post | Your sandbox tokens | `npm run test:e2e` or platform MCP |
 
 ## Important: copy-paste is not E2E
 
@@ -112,7 +112,7 @@ Verify in Slack: bold heading, italic, bullets, clickable link.
 ```bash
 cp .env.example .env   # fill SLACK_BOT_TOKEN, SLACK_CHANNEL_ID
 npm run build
-node scripts/e2e/slack-post.mjs
+npm run test:e2e:slack
 ```
 
 ---
@@ -170,7 +170,7 @@ Expected agent flow:
 ```bash
 cp .env.example .env   # fill JIRA_BASE_URL, JIRA_EMAIL, JIRA_API_TOKEN, JIRA_PROJECT_KEY
 npm run build
-node scripts/e2e/jira-create.mjs
+npm run test:e2e:jira
 ```
 
 Creates a Task with an ADF description. Open the printed issue URL in Jira to verify rendering.

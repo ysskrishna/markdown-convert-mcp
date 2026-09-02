@@ -20,6 +20,9 @@ Operating manual for AI agents working in this repository.
 | `npm run lint` | ESLint on `src` and `tests` |
 | `npm run typecheck` | `tsc --noEmit` |
 | `npm test` | Vitest (`vitest run`) |
+| `npm run test:e2e` | Optional Slack + Jira E2E (needs `.env`; not CI) |
+| `npm run test:e2e:slack` | Slack E2E only |
+| `npm run test:e2e:jira` | Jira E2E only |
 | `npm run build` | Compile `src/` → `dist/` |
 
 Full checkpoint before merge:

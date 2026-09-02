@@ -29,6 +29,9 @@ npm ci && npm run lint && npm run typecheck && npm test && npm run build
 | `npm run lint` | ESLint on `src` and `tests` |
 | `npm run typecheck` | `tsc --noEmit` |
 | `npm test` | Vitest (`vitest run`) |
+| `npm run test:e2e` | Optional Slack + Jira E2E (needs `.env`; not CI) |
+| `npm run test:e2e:slack` | Slack E2E only |
+| `npm run test:e2e:jira` | Jira E2E only |
 | `npm run build` | Compile `src/` → `dist/` |
 | `make release` | Tag `v$(version)` from `package.json` and push (triggers CI publish) |
 
@@ -89,8 +92,9 @@ Optional scripts (after `npm run build`):
 
 ```bash
 cp .env.example .env   # fill in credentials
-node scripts/e2e/slack-post.mjs
-node scripts/e2e/jira-create.mjs
+npm run test:e2e              # Slack then Jira
+npm run test:e2e:slack        # Slack only
+npm run test:e2e:jira         # Jira only
 ```
 
 ## CI
