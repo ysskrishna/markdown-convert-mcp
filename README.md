@@ -4,6 +4,9 @@
 
 Convert Markdown to Slack, Microsoft Teams, Jira, and plain text with an MCP server. Supports CommonMark and GitHub-Flavored Markdown (GFM) and provides platform-specific formatting for AI agents, LLMs, and automation workflows.
 
+![OG Image](https://raw.githubusercontent.com/ysskrishna/markdown-convert-mcp/main/media/og.jpg)
+
+
 ## MCP setup
 
 
