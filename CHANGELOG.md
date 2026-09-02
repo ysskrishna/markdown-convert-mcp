@@ -4,6 +4,20 @@ All notable changes to `@ysskrishna/markdown-convert-mcp` are documented here.
 
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2026-09-02
+
+### Changed
+
+- `markdown_to_jira` now returns **Jira Cloud ADF JSON** instead of Atlassian wiki markup. If you relied on wiki markup (`h1.`, `{code}`), stay on v1.0.x.
+
+### Added
+
+- `marklassian` dependency for Markdown → ADF conversion
+- [docs/E2E-TESTING.md](docs/E2E-TESTING.md) — optional platform MCP integration tests
+- [docs/mcp.json.example](docs/mcp.json.example) and optional `scripts/e2e/slack-post.mjs`
+
+[1.1.0]: https://github.com/ysskrishna/markdown-convert-mcp/compare/v1.0.1...v1.1.0
+
 ## [1.0.1] - 2026-08-31
 
 ### Added

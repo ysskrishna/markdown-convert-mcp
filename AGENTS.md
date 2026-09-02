@@ -8,7 +8,7 @@ Operating manual for AI agents working in this repository.
 - **Language:** TypeScript (`tsc` → `dist/`)
 - **MCP:** `@modelcontextprotocol/server` v2, stdio transport via `serveStdio`
 - **Validation:** Zod v4 (`zod/v4`)
-- **Markdown:** `slackify-markdown` (Slack), `unified` + `remark-parse` + `remark-gfm` (Teams/Jira/plaintext), `strip-markdown` (plaintext)
+- **Markdown:** `slackify-markdown` (Slack), `unified` + `remark-parse` + `remark-gfm` (Teams/plaintext), `marklassian` (Jira ADF JSON), `strip-markdown` (plaintext)
 - **Tests:** Vitest
 - **CI:** GitHub Actions on `pull_request` and `push` to `main`
 
@@ -20,6 +20,9 @@ Operating manual for AI agents working in this repository.
 | `npm run lint` | ESLint on `src` and `tests` |
 | `npm run typecheck` | `tsc --noEmit` |
 | `npm test` | Vitest (`vitest run`) |
+| `npm run test:e2e` | Optional Slack + Jira E2E (needs `.env`; not CI) |
+| `npm run test:e2e:slack` | Slack E2E only |
+| `npm run test:e2e:jira` | Jira E2E only |
 | `npm run build` | Compile `src/` → `dist/` |
 
 Full checkpoint before merge:

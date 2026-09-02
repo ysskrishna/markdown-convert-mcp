@@ -38,7 +38,7 @@ export function runConvert(
 }
 
 export function createServer(): McpServer {
-  const server = new McpServer({ name: 'markdown-convert', version: '1.0.1' });
+  const server = new McpServer({ name: 'markdown-convert', version: '1.1.0' });
 
   server.registerTool(
     'markdown_to_slack',
@@ -64,7 +64,7 @@ export function createServer(): McpServer {
     'markdown_to_jira',
     {
       description:
-        'Convert Markdown to Atlassian wiki markup (`h1.`, `{code}`, `||header||`) for Jira Server/Data Center or wiki markup fields. Do not use for Jira Cloud REST v3 ADF. Does not create Jira issues.',
+        'Convert Markdown to Jira Cloud ADF JSON (Atlassian Document Format) for REST v3 rich-text fields (description, comment, environment). Returns a JSON string for Jira/Atlassian MCP create/update tools. Not wiki markup. Does not create Jira issues.',
       inputSchema,
     },
     async ({ markdown }) => runConvert(markdown, markdownToJira),

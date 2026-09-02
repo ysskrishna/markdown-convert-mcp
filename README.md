@@ -4,6 +4,9 @@
 
 Convert Markdown to Slack, Microsoft Teams, Jira, and plain text with an MCP server. Supports CommonMark and GitHub-Flavored Markdown (GFM) and provides platform-specific formatting for AI agents, LLMs, and automation workflows.
 
+![OG Image](https://raw.githubusercontent.com/ysskrishna/markdown-convert-mcp/main/media/og.jpg)
+
+
 ## MCP setup
 
 
@@ -60,12 +63,11 @@ Each tool accepts `{ "markdown": "<source>" }` and returns converted text. Pick 
 | ----------------------- | ----------------------------------------------------- | --------------------------------------------- | -------------------------------------------------------------------------------- |
 | `markdown_to_slack`     | Slack mrkdwn                                          | Slack API or Slack MCP `text` (mrkdwn)        | Composer clipboard paste; `markdown_text` fields (pass Markdown through instead) |
 | `markdown_to_teams`     | HTML with inline CSS                                  | Teams paste or Graph `contentType: html`      | Adaptive Cards; this tool does not send Teams messages                           |
-| `markdown_to_jira`      | Atlassian wiki markup (`h1.`, `{code}`, `||header||`) | Jira Server/Data Center or wiki markup fields | Jira Cloud REST v3 ADF; this tool does not create issues                         |
+| `markdown_to_jira`      | ADF JSON string                                       | Jira Cloud REST v3 rich-text fields; Atlassian MCP | Wiki markup / Server v2 API; this tool does not create issues                    |
 | `markdown_to_plaintext` | Plain text                                            | Any destination that needs stripped text      | —                                                                                |
 
 
 **Limits:** Whitespace-only input returns success with an empty string. Input over 200,000 characters returns a tool error (`isError: true`), not a transport failure. Slack may truncate around 40k characters in the `text` field.
-
 
 ## Support
 
