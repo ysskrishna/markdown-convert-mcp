@@ -3,23 +3,8 @@
  * Optional manual E2E: convert sample markdown → ADF → Jira Cloud REST v3 issue.
  * Not run in CI. Requires JIRA_* vars in .env or environment.
  */
-import { readFileSync, existsSync } from 'node:fs';
-import { resolve } from 'node:path';
-import { markdownToJira } from '../../dist/converters/jira.js';
-
-function loadEnvFile() {
-  const path = resolve(process.cwd(), '.env');
-  if (!existsSync(path)) return;
-  for (const line of readFileSync(path, 'utf8').split('\n')) {
-    const trimmed = line.trim();
-    if (!trimmed || trimmed.startsWith('#')) continue;
-    const eq = trimmed.indexOf('=');
-    if (eq === -1) continue;
-    const key = trimmed.slice(0, eq).trim();
-    const value = trimmed.slice(eq + 1).trim();
-    if (!(key in process.env)) process.env[key] = value;
-  }
-}
+import { markdownToJira } from '#dist/converters/jira.js';
+import { die, loadEnvFile, SAMPLE_MARKDOWN } from './helpers.mjs';
 
 loadEnvFile();
 
@@ -29,28 +14,16 @@ const token = process.env.JIRA_API_TOKEN;
 const projectKey = process.env.JIRA_PROJECT_KEY;
 
 if (!baseUrl?.includes('atlassian.net')) {
-  console.error('Set JIRA_BASE_URL (e.g. https://yoursite.atlassian.net) in .env');
-  process.exit(1);
+  die('Set JIRA_BASE_URL (e.g. https://yoursite.atlassian.net) in .env');
 }
 if (!email || !token) {
-  console.error('Set JIRA_EMAIL and JIRA_API_TOKEN in .env');
-  process.exit(1);
+  die('Set JIRA_EMAIL and JIRA_API_TOKEN in .env');
 }
 if (!projectKey) {
-  console.error('Set JIRA_PROJECT_KEY (e.g. PROJ) in .env');
-  process.exit(1);
+  die('Set JIRA_PROJECT_KEY (e.g. PROJ) in .env');
 }
 
-const markdown = `# E2E test from markdown-convert-mcp
-
-**bold** and _italic_
-
-- item one
-- item two
-
-See [docs](https://example.com)`;
-
-const description = JSON.parse(markdownToJira(markdown));
+const description = JSON.parse(markdownToJira(SAMPLE_MARKDOWN));
 console.error('ADF description:\n', JSON.stringify(description, null, 2));
 
 const auth = Buffer.from(`${email}:${token}`).toString('base64');
