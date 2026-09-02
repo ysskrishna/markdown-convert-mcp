@@ -39,7 +39,7 @@ npm ci && npm run lint && npm run typecheck && npm test && npm run build
 - **Language:** TypeScript (`tsc` → `dist/`)
 - **MCP:** `@modelcontextprotocol/server` v2, stdio via `serveStdio`
 - **Validation:** Zod v4 (`zod/v4`)
-- **Markdown:** `slackify-markdown`, `unified` + `remark-parse` + `remark-gfm`, `strip-markdown`
+- **Markdown:** `slackify-markdown`, `unified` + `remark-parse` + `remark-gfm`, `marklassian`, `strip-markdown`
 - **Tests:** Vitest
 - **CI:** GitHub Actions on `pull_request` and `push` to `main`
 
@@ -79,6 +79,19 @@ Example **Cursor** / **Claude Desktop** config (use an absolute path):
 - **Claude Desktop:** `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS)
 
 Restart the host or reload MCP after config changes.
+
+## Testing
+
+- **Unit tests (no credentials):** `npm test`
+- **Optional E2E (your tokens):** see [docs/E2E-TESTING.md](docs/E2E-TESTING.md)
+
+Optional scripts (after `npm run build`):
+
+```bash
+cp .env.example .env   # fill in credentials
+node scripts/e2e/slack-post.mjs
+node scripts/e2e/jira-create.mjs
+```
 
 ## CI
 

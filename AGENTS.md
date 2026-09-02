@@ -8,7 +8,7 @@ Operating manual for AI agents working in this repository.
 - **Language:** TypeScript (`tsc` → `dist/`)
 - **MCP:** `@modelcontextprotocol/server` v2, stdio transport via `serveStdio`
 - **Validation:** Zod v4 (`zod/v4`)
-- **Markdown:** `slackify-markdown` (Slack), `unified` + `remark-parse` + `remark-gfm` (Teams/Jira/plaintext), `strip-markdown` (plaintext)
+- **Markdown:** `slackify-markdown` (Slack), `unified` + `remark-parse` + `remark-gfm` (Teams/plaintext), `marklassian` (Jira ADF JSON), `strip-markdown` (plaintext)
 - **Tests:** Vitest
 - **CI:** GitHub Actions on `pull_request` and `push` to `main`
 

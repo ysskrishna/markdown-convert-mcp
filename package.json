@@ -1,6 +1,6 @@
 {
   "name": "@ysskrishna/markdown-convert-mcp",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "MCP server: convert Markdown to Slack, Teams, Jira, and plain text",
   "type": "module",
   "bin": {
@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@modelcontextprotocol/server": "^2.0.0",
+    "marklassian": "^1.2.1",
     "remark-gfm": "^4.0.1",
     "remark-parse": "^11.0.0",
     "slackify-markdown": "^5.0.0",
