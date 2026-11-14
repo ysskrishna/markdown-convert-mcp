@@ -16,7 +16,12 @@
     "README.md",
     "CHANGELOG.md",
     "server.json",
-    "openclaw.plugin.json"
+    "openclaw.plugin.json",
+    "index.js",
+    "plugin.json",
+    "gemini-extension.json",
+    "skills.sh.json",
+    "assets/icon.png"
   ],
   "openclaw": {
     "compat": {

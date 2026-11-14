@@ -1,0 +1,9 @@
+node_modules/
+dist/
+workspace/
+.git/
+.env
+*.test.ts
+tests/
+src/
+scripts/e2e/
