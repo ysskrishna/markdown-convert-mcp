@@ -1,10 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 120" fill="none">
-  <rect width="520" height="120" fill="#fafafa"/>
-  <rect x="32" y="24" width="72" height="72" rx="16" fill="#fafafa" stroke="#0a0a0a" stroke-width="4"/>
-  <rect x="44" y="36" width="48" height="8" rx="2" fill="#0a0a0a"/>
-  <rect x="44" y="48" width="48" height="6" rx="2" fill="#0a0a0a" opacity=".6"/>
-  <rect x="44" y="58" width="48" height="6" rx="2" fill="#0a0a0a" opacity=".4"/>
-  <rect x="44" y="68" width="48" height="6" rx="2" fill="#0a0a0a" opacity=".25"/>
-  <text x="124" y="58" font-family="system-ui,sans-serif" font-size="24" font-weight="700" fill="#0a0a0a">Markdown Convert</text>
-  <text x="124" y="84" font-family="system-ui,sans-serif" font-size="13" fill="#52525b">MCP · Slack · Teams · Jira · plain text</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 408" width="1240" height="408">
+  <rect width="1240" height="408" fill="#000"/>
+  <g transform="translate(92 92) scale(0.22)">
+    <rect x="125" y="125" width="774" height="774" rx="138" fill="none" stroke="#fff" stroke-width="46"/>
+    <g stroke="#fff" stroke-width="46" fill="none" stroke-linejoin="round">
+      <path d="M512 330 V520 M300 620 V520 H724 V620 M512 520 V620"/>
+      <rect x="240" y="620" width="120" height="120" rx="28"/>
+      <rect x="452" y="620" width="120" height="120" rx="28"/>
+      <rect x="664" y="620" width="120" height="120" rx="28"/>
+    </g>
+    <circle cx="512" cy="300" r="88" fill="#fff"/>
+  </g>
+  <text x="393" y="212" fill="#fff" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="84" font-weight="700">Markdown Convert</text>
+  <text x="395" y="256" fill="#9a9a9a" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="22" letter-spacing="5.5">MCP SERVER</text>
 </svg>
