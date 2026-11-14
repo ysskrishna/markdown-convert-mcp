@@ -16,11 +16,10 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Literal
 
-clawhub_slug_map = {
+CLAWHUB_SLUG_MAP = {
     "markdown-convert": "markdown-convert",
 }
 
-SKILLS: list[str] = []
 OWNER_HANDLE = "ysskrishna"
 PACKAGE_NAME = "@ysskrishna/markdown-convert-mcp"
 PACKAGE_DISPLAY_NAME = "Markdown Convert MCP"
@@ -72,20 +71,19 @@ def repo_release_version() -> str:
 
 
 def clawhub_slug(folder: str) -> str:
-    if folder in clawhub_slug_map:
-        return clawhub_slug_map[folder]
-    raise SystemExit(f"add {folder!r} to clawhub_slug_map")
+    if folder in CLAWHUB_SLUG_MAP:
+        return CLAWHUB_SLUG_MAP[folder]
+    raise SystemExit(f"add {folder!r} to CLAWHUB_SLUG_MAP")
 
 
 def target_folders() -> list[str]:
-    if SKILLS:
-        return list(SKILLS)
     folders: list[str] = []
     for path in sorted(SKILLS_DIR.iterdir()):
-        if path.is_dir() and (path / "SKILL.md").is_file() and path.name in clawhub_slug_map:
+        if path.is_dir() and (path / "SKILL.md").is_file():
+            clawhub_slug(path.name)  # exits if the folder has no slug mapping
             folders.append(path.name)
     if not folders:
-        raise SystemExit("no skills with clawhub_slug_map entry")
+        raise SystemExit("no skills with CLAWHUB_SLUG_MAP entry")
     return folders
 
 
