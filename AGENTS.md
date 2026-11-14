@@ -68,11 +68,13 @@ What is **already published** is recorded in [docs/contributing/release-state.md
 4. Merge to `main`.
 5. Tag and push: `make release` (creates `v$(package.json version)` and triggers GitHub Release + npm publish).
 
-After **npm** publish succeeds on the tagged commit:
+After **npm** publish succeeds on that same tagged commit:
 
 6. Publish to the [MCP Registry](https://modelcontextprotocol.io/registry): `mcp-publisher login github` (once), then `mcp-publisher publish` from the repo root with matching `server.json`.
-7. Publish to ClawHub (`clawhub` CLI logged in): per-skill `python3 scripts/publish_clawhub.py plan` then `publish`; bundle `python3 scripts/publish_clawhub.py package plan` then `package publish [--dry-run]`.
+7. Publish both ClawHub artifacts from that tagged commit. `clawhub` must already be logged in. Check sync first, then publish. Do not publish a different version than the tag.
+   - Skill: `python3 scripts/publish_clawhub.py plan`, then `python3 scripts/publish_clawhub.py publish`.
+   - Bundle plugin: `python3 scripts/publish_clawhub.py package plan`, then `python3 scripts/publish_clawhub.py package publish`.
 
-Update `docs/contributing/release-state.md` after npm, registry, and ClawHub versions are confirmed.
+Confirm the GitHub Release, the npm version, the MCP Registry version, and both ClawHub versions, then update `docs/contributing/release-state.md`.
 
 Do not create tags or GitHub releases unless the owner asks.

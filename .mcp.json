@@ -2,7 +2,7 @@
   "mcpServers": {
     "markdown-convert": {
       "command": "npx",
-      "args": ["-y", "@ysskrishna/markdown-convert-mcp"]
+      "args": ["-y", "@ysskrishna/markdown-convert-mcp@latest"]
     }
   }
 }
