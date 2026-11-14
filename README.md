@@ -11,7 +11,7 @@ Convert Markdown to Slack, Microsoft Teams, Jira, and plain text with an MCP ser
 
 Listed on the [official MCP Registry](https://registry.modelcontextprotocol.io/?q=io.github.ysskrishna%2Fmarkdown-convert-mcp) as `io.github.ysskrishna/markdown-convert-mcp`.
 
-![OG Image](https://raw.githubusercontent.com/ysskrishna/markdown-convert-mcp/main/media/og.jpg)
+<img src="assets/logo-lockup.png" alt="Markdown Convert MCP" width="520">
 
 ## Installation
 
@@ -21,7 +21,107 @@ Fastest path (works in most MCP hosts):
 npx -y @ysskrishna/markdown-convert-mcp
 ```
 
-Point your host at `npx` with args `["-y", "@ysskrishna/markdown-convert-mcp"]`, or use the snippets below.
+Point your host at `npx` with args `["-y", "@ysskrishna/markdown-convert-mcp"]`, or use the plugin, skill, or host snippets below.
+
+<a id="claude-code-plugin"></a>
+
+<details>
+<summary><b>Claude Code (plugin marketplace)</b></summary>
+
+```text
+/plugin marketplace add ysskrishna/markdown-convert-mcp
+/plugin install markdown-convert-mcp@markdown-convert-mcp
+```
+
+Companion skill only:
+
+```text
+/plugin install markdown-convert@markdown-convert-mcp
+```
+
+Add the MCP server (if not using the OpenClaw/ClawHub bundle):
+
+```bash
+claude mcp add markdown-convert -- npx -y @ysskrishna/markdown-convert-mcp
+```
+
+</details>
+
+<a id="codex"></a>
+
+<details>
+<summary><b>Codex CLI</b></summary>
+
+```bash
+codex plugin marketplace add ysskrishna/markdown-convert-mcp
+codex plugin add markdown-convert-mcp@markdown-convert-mcp
+```
+
+Configure the MCP server with `npx` in Codex MCP settings if the plugin does not register it automatically.
+
+</details>
+
+<a id="github-copilot-cli"></a>
+
+<details>
+<summary><b>GitHub Copilot CLI</b></summary>
+
+```bash
+copilot plugin marketplace add ysskrishna/markdown-convert-mcp
+copilot plugin install markdown-convert-mcp@markdown-convert-mcp
+```
+
+</details>
+
+<a id="cursor-plugin"></a>
+
+<details>
+<summary><b>Cursor (plugin)</b></summary>
+
+In Cursor: **Customize → Plugins → Add → From GitHub Repository** → `github.com/ysskrishna/markdown-convert-mcp`, or in Agent chat: `/add-plugin`.
+
+The plugin includes the `markdown-convert` skill; register the MCP server under **Settings → MCP** (see [Cursor MCP](#cursor) below).
+
+</details>
+
+<a id="skillssh"></a>
+
+<details>
+<summary><b>skills.sh</b></summary>
+
+```bash
+npx skills add ysskrishna/markdown-convert-mcp --skill markdown-convert
+```
+
+MCP server: use the [npx](#installation) config or a host-specific MCP block below.
+
+</details>
+
+<a id="github-cli-gh-skill"></a>
+
+<details>
+<summary><b>GitHub CLI (gh skill)</b></summary>
+
+Requires GitHub CLI v2.90.0 or later.
+
+```bash
+gh skill install ysskrishna/markdown-convert-mcp markdown-convert
+```
+
+</details>
+
+<a id="clawhub-skill"></a>
+
+<details>
+<summary><b>ClawHub (per-skill)</b></summary>
+
+```bash
+clawhub install markdown-convert
+```
+
+Browse: [clawhub.ai/ysskrishna/markdown-convert](https://clawhub.ai/ysskrishna/markdown-convert). For the full MCP bundle, see [OpenClaw (ClawHub)](#openclaw-clawhub).
+
+</details>
 
 <a id="cursor"></a>
 
@@ -188,9 +288,17 @@ Inspect before install:
 clawhub package inspect @ysskrishna/markdown-convert-mcp
 ```
 
-Reload OpenClaw after install. Maintainer publish: `python3 scripts/publish_clawhub.py plan` then `publish` after each version tag (see [DEVELOPMENT.md](DEVELOPMENT.md#releasing)).
+Reload OpenClaw after install.
+
+Maintainer publish after each version tag: `python3 scripts/publish_clawhub.py plan` / `publish` (skill), then `python3 scripts/publish_clawhub.py package plan` / `package publish` (bundle). See [DEVELOPMENT.md](DEVELOPMENT.md#releasing).
 
 </details>
+
+## Companion skill
+
+| Skill | Use it when | Registry |
+|-------|-------------|----------|
+| [`markdown-convert`](skills/markdown-convert/SKILL.md) | The agent will paste or post into Slack, Teams, Jira, or needs stripped text next. | [![Clawhub](https://img.shields.io/badge/Clawhub-informational)](https://clawhub.ai/ysskrishna/markdown-convert) |
 
 ## Tools and next hops
 

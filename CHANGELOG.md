@@ -12,7 +12,9 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and thi
 - `scripts/validate-release.sh` to keep `package.json`, `server.json`, and `src/server.ts` versions in sync
 - `SECURITY.md` and `docs/contributing/release-state.md` for maintainers
 - OpenClaw distribution: `openclaw.plugin.json`, `.mcp.json`, `.cursor-plugin/plugin.json`, `assets/icon.png`, and `skills/markdown-convert/SKILL.md`
-- `scripts/publish_clawhub.py` for ClawHub `bundle-plugin` publishes
+- `scripts/publish_clawhub.py` for ClawHub per-skill and `bundle-plugin` publishes
+- Host plugin manifests (Claude, Codex, Cursor, Kimi, Gemini, Agent Plugins 1.0) and `index.js` for OpenCode
+- Option B brand assets (`assets/icon.png`, `logo-dark.png`, `logo-lockup.png`) and README distribution sections
 - AGENTS.md **Releases** section and expanded DEVELOPMENT releasing steps (npm, MCP Registry, ClawHub)
 
 ### Changed

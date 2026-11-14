@@ -62,7 +62,7 @@ See [DEVELOPMENT.md](DEVELOPMENT.md) for local setup, CI, and release workflow.
 
 What is **already published** is recorded in [docs/contributing/release-state.md](docs/contributing/release-state.md). When the owner asks to ship a release:
 
-1. Bump version in `package.json`, `server.json` (root and npm package entry), `src/server.ts` `McpServer` version, `openclaw.plugin.json`, and `.cursor-plugin/plugin.json`. Run `bash scripts/validate-release.sh`.
+1. Bump version in `package.json`, `server.json` (root and npm package entry), `src/server.ts` `McpServer` version, `openclaw.plugin.json`, `plugin.json`, `gemini-extension.json`, `.claude-plugin/plugin.json`, `.codex-plugin/plugin.json`, `.cursor-plugin/plugin.json`, `.kimi-plugin/plugin.json`, `skills/markdown-convert/SKILL.md` frontmatter, and `.claude-plugin/marketplace.json` bundle entries. Run `bash scripts/validate-release.sh`.
 2. Add a `## [x.y.z]` section to `CHANGELOG.md` with a footer compare link.
 3. Run the full checkpoint locally (`npm ci && npm run lint && npm run typecheck && npm test && npm run build`).
 4. Merge to `main`.
@@ -71,7 +71,7 @@ What is **already published** is recorded in [docs/contributing/release-state.md
 After **npm** publish succeeds on the tagged commit:
 
 6. Publish to the [MCP Registry](https://modelcontextprotocol.io/registry): `mcp-publisher login github` (once), then `mcp-publisher publish` from the repo root with matching `server.json`.
-7. Publish the OpenClaw bundle to ClawHub: `python3 scripts/publish_clawhub.py plan`, then `python3 scripts/publish_clawhub.py publish` (requires `clawhub` CLI logged in). Uses `clawhub package publish --family bundle-plugin`.
+7. Publish to ClawHub (`clawhub` CLI logged in): per-skill `python3 scripts/publish_clawhub.py plan` then `publish`; bundle `python3 scripts/publish_clawhub.py package plan` then `package publish [--dry-run]`.
 
 Update `docs/contributing/release-state.md` after npm, registry, and ClawHub versions are confirmed.
 

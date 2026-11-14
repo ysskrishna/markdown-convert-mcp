@@ -35,8 +35,10 @@ npm ci && npm run lint && npm run typecheck && npm test && npm run build
 | `npm run build` | Compile `src/` → `dist/` |
 | `make release` | Tag `v$(version)` from `package.json` and push (triggers CI publish) |
 | `bash scripts/validate-release.sh` | Verify release version sync across manifests |
-| `python3 scripts/publish_clawhub.py plan` | ClawHub bundle sync status |
-| `python3 scripts/publish_clawhub.py publish` | Publish OpenClaw bundle to ClawHub |
+| `python3 scripts/publish_clawhub.py plan` | ClawHub per-skill sync status |
+| `python3 scripts/publish_clawhub.py publish` | Publish skill(s) to ClawHub |
+| `python3 scripts/publish_clawhub.py package plan` | ClawHub bundle package sync |
+| `python3 scripts/publish_clawhub.py package publish` | Publish OpenClaw bundle to ClawHub |
 
 
 ## Stack
@@ -122,8 +124,9 @@ Version sync (all must match before tagging):
 - `package-lock.json` root and `packages[""].version`
 - `server.json` `version` and `packages[0].version`
 - `src/server.ts` `McpServer` `version`
-- `openclaw.plugin.json` `version`
-- `.cursor-plugin/plugin.json` `version`
+- `openclaw.plugin.json`, `plugin.json`, `gemini-extension.json`
+- `.claude-plugin/plugin.json`, `.codex-plugin/plugin.json`, `.cursor-plugin/plugin.json`, `.kimi-plugin/plugin.json`
+- `skills/markdown-convert/SKILL.md` `version`
 
 Run `bash scripts/validate-release.sh` to verify the list above.
 
@@ -145,14 +148,16 @@ mcp-publisher login github
 mcp-publisher publish
 ```
 
-**ClawHub** (OpenClaw bundle-plugin):
+**ClawHub** (skill + OpenClaw bundle-plugin):
 
 ```bash
 python3 scripts/publish_clawhub.py plan
 python3 scripts/publish_clawhub.py publish
+python3 scripts/publish_clawhub.py package plan
+python3 scripts/publish_clawhub.py package publish
 ```
 
-Requires the `clawhub` CLI and a logged-in session. The script stages `skills/`, `assets/`, `openclaw.plugin.json`, `.mcp.json`, and `.cursor-plugin/plugin.json` only (not the full repo).
+Requires the `clawhub` CLI and a logged-in session. Bundle publish stages `skills/`, `assets/`, `index.js`, `openclaw.plugin.json`, `.mcp.json`, and `.cursor-plugin/plugin.json` only (not the full repo).
 
 Update [docs/contributing/release-state.md](docs/contributing/release-state.md) when npm, registry, and ClawHub are live.
 
