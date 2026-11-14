@@ -39,7 +39,7 @@ Companion skill only:
 /plugin install markdown-convert@markdown-convert-mcp
 ```
 
-Add the MCP server (if not using the OpenClaw/ClawHub bundle):
+The `markdown-convert-mcp` plugin registers the MCP server and the skill together. If you install only the skill (`markdown-convert`), add the MCP server yourself:
 
 ```bash
 claude mcp add markdown-convert -- npx -y @ysskrishna/markdown-convert-mcp
@@ -57,7 +57,7 @@ codex plugin marketplace add ysskrishna/markdown-convert-mcp
 codex plugin add markdown-convert-mcp@markdown-convert-mcp
 ```
 
-Configure the MCP server with `npx` in Codex MCP settings if the plugin does not register it automatically.
+The Codex plugin installs the skill only and does not register the MCP server. Add the server in Codex MCP settings with `npx` and args `["-y", "@ysskrishna/markdown-convert-mcp"]`.
 
 </details>
 
