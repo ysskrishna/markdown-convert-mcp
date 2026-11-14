@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#000"/>
+  <g transform="translate(96 160) scale(0.2)">
+    <rect x="125" y="125" width="774" height="774" rx="138" fill="none" stroke="#fff" stroke-width="46"/>
+    <g stroke="#fff" stroke-width="46" fill="none" stroke-linejoin="round">
+      <path d="M512 330 V520 M300 620 V520 H724 V620 M512 520 V620"/>
+      <rect x="240" y="620" width="120" height="120" rx="28"/>
+      <rect x="452" y="620" width="120" height="120" rx="28"/>
+      <rect x="664" y="620" width="120" height="120" rx="28"/>
+    </g>
+    <circle cx="512" cy="300" r="88" fill="#fff"/>
+  </g>
+  <g font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif">
+    <text x="400" y="250" fill="#fff" font-size="76" font-weight="700">Markdown</text>
+    <text x="400" y="336" fill="#fff" font-size="76" font-weight="700">Convert</text>
+    <text x="402" y="384" fill="#9a9a9a" font-size="26" letter-spacing="6.5">MCP SERVER</text>
+    <text x="96" y="500" fill="#fff" font-size="32">Convert Markdown to Slack, Teams, Jira, and plain text.</text>
+    <text x="96" y="544" fill="#9a9a9a" font-size="24">github.com/ysskrishna/markdown-convert-mcp</text>
+  </g>
+</svg>

@@ -34,6 +34,11 @@ npm ci && npm run lint && npm run typecheck && npm test && npm run build
 | `npm run test:e2e:jira` | Jira E2E only |
 | `npm run build` | Compile `src/` → `dist/` |
 | `make release` | Tag `v$(version)` from `package.json` and push (triggers CI publish) |
+| `bash scripts/validate-release.sh` | Verify release version sync across manifests |
+| `python3 scripts/publish_clawhub.py plan` | ClawHub per-skill sync status |
+| `python3 scripts/publish_clawhub.py publish` | Publish skill(s) to ClawHub |
+| `python3 scripts/publish_clawhub.py package plan` | ClawHub bundle package sync |
+| `python3 scripts/publish_clawhub.py package publish` | Publish OpenClaw bundle to ClawHub |
 
 
 ## Stack
@@ -83,6 +88,10 @@ Example **Cursor** / **Claude Desktop** config (use an absolute path):
 
 Restart the host or reload MCP after config changes.
 
+**Plugin `.mcp.json`:** it uses `@latest` on purpose. Plain `npx -y @ysskrishna/markdown-convert-mcp` fails with exit 127 when the host's working directory is this repo, because npx resolves the local package and its own bin is not on `PATH`. The `@latest` spec forces a registry fetch. It does mean plugin installs track the newest npm release.
+
+**MCP Inspector:** `npx @modelcontextprotocol/inspector npx -y @ysskrishna/markdown-convert-mcp` (or `node` on `dist/index.js` after `npm run build`).
+
 ## Testing
 
 - **Unit tests (no credentials):** `npm test`
@@ -111,15 +120,48 @@ Publish uses the GitHub **`prod`** environment and [npm trusted publishing](http
 
 Package: [`@ysskrishna/markdown-convert-mcp`](https://www.npmjs.com/package/@ysskrishna/markdown-convert-mcp)
 
-1. Bump `version` in `package.json` and match `src/server.ts` `McpServer` version.
-2. Add a `## [x.y.z]` section to `CHANGELOG.md` (required by **Create Release**).
-3. Run the full checkpoint locally.
-4. Merge to `main`.
-5. Tag and push:
+Version sync (all must match before tagging):
+
+- `package.json` `version`
+- `package-lock.json` root and `packages[""].version`
+- `server.json` `version` and `packages[0].version`
+- `src/server.ts` `McpServer` `version`
+- `openclaw.plugin.json`, `plugin.json`, `gemini-extension.json`
+- `.claude-plugin/plugin.json`, `.codex-plugin/plugin.json`, `.cursor-plugin/plugin.json`, `.kimi-plugin/plugin.json`
+- `skills/markdown-convert/SKILL.md` `version`
+
+Run `bash scripts/validate-release.sh` to verify the list above.
+
+1. Bump versions and update `CHANGELOG.md` (required by **Create Release**).
+2. Run the full checkpoint locally.
+3. Merge to `main`.
+4. Tag and push:
 
 ```bash
 make release
 ```
+
+### After npm publish (same tagged commit)
+
+**MCP Registry** (publish after npm):
+
+```bash
+mcp-publisher login github
+mcp-publisher publish
+```
+
+**ClawHub** (skill + OpenClaw bundle-plugin):
+
+```bash
+python3 scripts/publish_clawhub.py plan
+python3 scripts/publish_clawhub.py publish
+python3 scripts/publish_clawhub.py package plan
+python3 scripts/publish_clawhub.py package publish
+```
+
+Requires the `clawhub` CLI and a logged-in session. Bundle publish stages `skills/`, `assets/`, `index.js`, `openclaw.plugin.json`, `.mcp.json`, and `.cursor-plugin/plugin.json` only (not the full repo).
+
+Update [docs/contributing/release-state.md](docs/contributing/release-state.md) when npm, registry, and ClawHub are live.
 
 ## Troubleshooting
 

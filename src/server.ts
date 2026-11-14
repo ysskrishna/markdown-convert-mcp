@@ -38,7 +38,7 @@ export function runConvert(
 }
 
 export function createServer(): McpServer {
-  const server = new McpServer({ name: 'markdown-convert', version: '1.1.0' });
+  const server = new McpServer({ name: 'markdown-convert', version: '1.2.0' });
 
   server.registerTool(
     'markdown_to_slack',

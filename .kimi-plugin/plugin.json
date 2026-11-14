@@ -1,0 +1,12 @@
+{
+  "name": "markdown-convert-mcp",
+  "version": "1.2.0",
+  "description": "MCP server converting Markdown to Slack, Teams, Jira, and plain text for agents.",
+  "author": {
+    "name": "ysskrishna"
+  },
+  "homepage": "https://github.com/ysskrishna/markdown-convert-mcp",
+  "license": "MIT",
+  "keywords": ["mcp", "markdown", "slack", "teams", "jira"],
+  "skills": "./skills/"
+}

@@ -1,0 +1,16 @@
+{
+  "name": "markdown-convert-mcp",
+  "owner": {
+    "name": "ysskrishna"
+  },
+  "metadata": {
+    "description": "Markdown conversion MCP and companion agent skill."
+  },
+  "plugins": [
+    {
+      "name": "markdown-convert-mcp",
+      "source": "./",
+      "description": "MCP server plus markdown-convert skill: Slack mrkdwn, Teams HTML, Jira ADF, plain text."
+    }
+  ]
+}

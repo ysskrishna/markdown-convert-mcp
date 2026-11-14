@@ -1,6 +1,6 @@
 {
   "name": "@ysskrishna/markdown-convert-mcp",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "mcpName": "io.github.ysskrishna/markdown-convert-mcp",
   "description": "MCP server: convert Markdown to Slack, Teams, Jira, and plain text",
   "type": "module",
@@ -15,8 +15,24 @@
     "LICENSE",
     "README.md",
     "CHANGELOG.md",
-    "server.json"
+    "server.json",
+    "openclaw.plugin.json",
+    "index.js",
+    "plugin.json",
+    "gemini-extension.json",
+    "skills.sh.json",
+    "skills",
+    "assets/icon.png"
   ],
+  "openclaw": {
+    "compat": {
+      "pluginApi": ">=2026.3.24-beta.2",
+      "minGatewayVersion": "2026.3.24-beta.2"
+    },
+    "build": {
+      "openclawVersion": "2026.11.2"
+    }
+  },
   "engines": {
     "node": ">=22"
   },
