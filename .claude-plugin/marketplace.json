@@ -1,0 +1,25 @@
+{
+  "name": "markdown-convert-mcp",
+  "owner": {
+    "name": "ysskrishna",
+    "url": "https://ysskrishna.space"
+  },
+  "metadata": {
+    "description": "Markdown conversion MCP and companion agent skill.",
+    "version": "1.2.0"
+  },
+  "plugins": [
+    {
+      "name": "markdown-convert-mcp",
+      "source": "./",
+      "description": "Bundle: markdown-convert MCP (npx stdio) plus SKILL.md guidance for when to use each convert tool.",
+      "version": "1.2.0"
+    },
+    {
+      "name": "markdown-convert",
+      "source": "./skills/markdown-convert",
+      "skills": "./",
+      "description": "Use when the agent will post or paste into Slack, Teams, Jira Cloud, or needs stripped plain text — routes to markdown-convert MCP tools."
+    }
+  ]
+}

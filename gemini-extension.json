@@ -1,0 +1,5 @@
+{
+  "name": "markdown-convert-mcp",
+  "version": "1.2.0",
+  "description": "MCP server converting Markdown to Slack, Teams, Jira, and plain text for agents."
+}
