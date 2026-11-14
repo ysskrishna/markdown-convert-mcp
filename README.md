@@ -1,19 +1,34 @@
 # Markdown Convert MCP
 
-![npm version](https://img.shields.io/npm/v/@ysskrishna/markdown-convert-mcp.svg?style=flat-square)![CI](https://github.com/ysskrishna/markdown-convert-mcp/actions/workflows/ci.yml/badge.svg)![Node](https://img.shields.io/node/v/@ysskrishna/markdown-convert-mcp.svg?style=flat-square)![License: MIT](https://img.shields.io/github/license/ysskrishna/markdown-convert-mcp.svg?style=flat-square)
+[![npm version](https://img.shields.io/npm/v/@ysskrishna/markdown-convert-mcp.svg?style=flat-square)](https://www.npmjs.com/package/@ysskrishna/markdown-convert-mcp)
+[![CI](https://github.com/ysskrishna/markdown-convert-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/ysskrishna/markdown-convert-mcp/actions/workflows/ci.yml)
+[![Node](https://img.shields.io/node/v/@ysskrishna/markdown-convert-mcp.svg?style=flat-square)](https://nodejs.org/)
+[![License: MIT](https://img.shields.io/github/license/ysskrishna/markdown-convert-mcp.svg?style=flat-square)](LICENSE)
+[![MCP Registry](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fregistry.modelcontextprotocol.io%2Fv0.1%2Fservers%2Fio.github.ysskrishna%252Fmarkdown-convert-mcp%2Fversions%2Flatest&query=%24.server.version&label=MCP%20Registry&logo=modelcontextprotocol&style=flat-square)](https://registry.modelcontextprotocol.io/?q=io.github.ysskrishna%2Fmarkdown-convert-mcp)
+[![npm downloads](https://img.shields.io/npm/dm/@ysskrishna/markdown-convert-mcp.svg?style=flat-square)](https://www.npmjs.com/package/@ysskrishna/markdown-convert-mcp)
 
 Convert Markdown to Slack, Microsoft Teams, Jira, and plain text with an MCP server. Supports CommonMark and GitHub-Flavored Markdown (GFM) and provides platform-specific formatting for AI agents, LLMs, and automation workflows.
 
+Listed on the [official MCP Registry](https://registry.modelcontextprotocol.io/?q=io.github.ysskrishna%2Fmarkdown-convert-mcp) as `io.github.ysskrishna/markdown-convert-mcp`.
+
 ![OG Image](https://raw.githubusercontent.com/ysskrishna/markdown-convert-mcp/main/media/og.jpg)
 
+## Installation
 
-## MCP setup
+Fastest path (works in most MCP hosts):
 
+```bash
+npx -y @ysskrishna/markdown-convert-mcp
+```
 
+Point your host at `npx` with args `["-y", "@ysskrishna/markdown-convert-mcp"]`, or use the snippets below.
 
-### Cursor
+<a id="cursor"></a>
 
-Add to `~/.cursor/mcp.json` (global) or `.cursor/mcp.json` (project only):
+<details>
+<summary><b>Cursor</b></summary>
+
+Add to `~/.cursor/mcp.json` (global) or `.cursor/mcp.json` (project):
 
 ```json
 {
@@ -26,20 +41,29 @@ Add to `~/.cursor/mcp.json` (global) or `.cursor/mcp.json` (project only):
 }
 ```
 
-Then open **Cursor Settings → MCP** and confirm `markdown-convert` is enabled.
+Open **Cursor Settings → MCP** and enable `markdown-convert`.
 
-With a global install, you can use `"command": "markdown-convert-mcp"` instead of `npx`.
+With a global install, use `"command": "markdown-convert-mcp"` instead of `npx`.
 
+</details>
 
-### Claude Code (CLI)
+<a id="claude-code"></a>
+
+<details>
+<summary><b>Claude Code</b></summary>
 
 ```bash
 claude mcp add markdown-convert -- npx -y @ysskrishna/markdown-convert-mcp
 ```
 
-Add `-s user` to register for all projects. In a session, run `/mcp` to list tools.
+Add `-s user` for all projects. In a session, run `/mcp` to list tools.
 
-### Claude Desktop
+</details>
+
+<a id="claude-desktop"></a>
+
+<details>
+<summary><b>Claude Desktop</b></summary>
 
 **Settings → Developer → Edit Config**, then restart Claude:
 
@@ -54,10 +78,123 @@ Add `-s user` to register for all projects. In a session, run `/mcp` to list too
 }
 ```
 
+</details>
+
+<a id="vscode"></a>
+
+<details>
+<summary><b>VS Code (and Copilot MCP)</b></summary>
+
+Add to your user or workspace MCP config (for example `.vscode/mcp.json` or **GitHub Copilot → MCP** settings):
+
+```json
+{
+  "servers": {
+    "markdown-convert": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@ysskrishna/markdown-convert-mcp"]
+    }
+  }
+}
+```
+
+Restart or reload MCP after saving.
+
+</details>
+
+<a id="windsurf"></a>
+
+<details>
+<summary><b>Windsurf</b></summary>
+
+Add to `~/.codeium/windsurf/mcp_config.json` (or the MCP section in Windsurf settings):
+
+```json
+{
+  "mcpServers": {
+    "markdown-convert": {
+      "command": "npx",
+      "args": ["-y", "@ysskrishna/markdown-convert-mcp"]
+    }
+  }
+}
+```
+
+</details>
+
+<a id="windows-cmd"></a>
+
+<details>
+<summary><b>Windows (cmd /c wrapper)</b></summary>
+
+Some hosts on Windows need `cmd` to resolve `npx`:
+
+```json
+{
+  "mcpServers": {
+    "markdown-convert": {
+      "command": "cmd",
+      "args": ["/c", "npx", "-y", "@ysskrishna/markdown-convert-mcp"]
+    }
+  }
+}
+```
+
+</details>
+
+<a id="npm-global"></a>
+
+<details>
+<summary><b>npm global</b></summary>
+
+```bash
+npm install -g @ysskrishna/markdown-convert-mcp
+```
+
+Then use `"command": "markdown-convert-mcp"` with no args in your MCP config.
+
+</details>
+
+<a id="mcp-inspector"></a>
+
+<details>
+<summary><b>MCP Inspector (development)</b></summary>
+
+After `npm run build`, or against the published package:
+
+```bash
+npx @modelcontextprotocol/inspector npx -y @ysskrishna/markdown-convert-mcp
+```
+
+For a local checkout, swap in `node /absolute/path/to/markdown-convert-mcp/dist/index.js`.
+
+</details>
+
+<a id="openclaw-clawhub"></a>
+
+<details>
+<summary><b>OpenClaw (ClawHub)</b></summary>
+
+Install the **bundle-plugin** from ClawHub (registers the `markdown-convert` MCP server and the companion `markdown-convert` skill):
+
+```bash
+openclaw plugins install clawhub:@ysskrishna/markdown-convert-mcp
+```
+
+Inspect before install:
+
+```bash
+clawhub package inspect @ysskrishna/markdown-convert-mcp
+```
+
+Reload OpenClaw after install. Maintainer publish: `python3 scripts/publish_clawhub.py plan` then `publish` after each version tag (see [DEVELOPMENT.md](DEVELOPMENT.md#releasing)).
+
+</details>
+
 ## Tools and next hops
 
 Each tool accepts `{ "markdown": "<source>" }` and returns converted text. Pick the tool that matches where the string will go next.
-
 
 | Tool                    | Output                                                | Use when the next hop expects                 | Do not use when                                                                  |
 | ----------------------- | ----------------------------------------------------- | --------------------------------------------- | -------------------------------------------------------------------------------- |
@@ -66,8 +203,19 @@ Each tool accepts `{ "markdown": "<source>" }` and returns converted text. Pick 
 | `markdown_to_jira`      | ADF JSON string                                       | Jira Cloud REST v3 rich-text fields; Atlassian MCP | Wiki markup / Server v2 API; this tool does not create issues                    |
 | `markdown_to_plaintext` | Plain text                                            | Any destination that needs stripped text      | —                                                                                |
 
-
 **Limits:** Whitespace-only input returns success with an empty string. Input over 200,000 characters returns a tool error (`isError: true`), not a transport failure. Slack may truncate around 40k characters in the `text` field.
+
+## Built and maintained by
+
+Markdown Convert MCP is built and maintained by:
+
+| | Name | GitHub | Role |
+|---|------|--------|------|
+| <img src="https://github.com/ysskrishna.png?size=120" width="60" height="60" alt="Y. Siva Sai Krishna"> | **Y. Siva Sai Krishna** | [@ysskrishna](https://github.com/ysskrishna) | Creator |
+
+## Changelog
+
+See [CHANGELOG](CHANGELOG.md) for release history.
 
 ## Support
 
@@ -78,11 +226,17 @@ If you find this project helpful:
 - Submit pull requests
 - [Sponsor on GitHub](https://github.com/sponsors/ysskrishna)
 
-
 ## License
 
 MIT © [Y. Siva Sai Krishna](https://github.com/ysskrishna) — see [LICENSE](LICENSE) for details.
 
 ---
 
-[Author's GitHub](https://github.com/ysskrishna) • [Author's LinkedIn](https://linkedin.com/in/ysskrishna) • [Author's site](https://ysskrishna.space) • [Report Issues](https://github.com/ysskrishna/markdown-convert-mcp/issues)
+<p align="left">
+  <a href="https://registry.modelcontextprotocol.io/?q=io.github.ysskrishna%2Fmarkdown-convert-mcp">MCP Registry</a> •
+  <a href="https://www.npmjs.com/package/@ysskrishna/markdown-convert-mcp">npm</a> •
+  <a href="https://github.com/ysskrishna">Author's GitHub</a> •
+  <a href="https://linkedin.com/in/ysskrishna">Author's LinkedIn</a> •
+  <a href="https://ysskrishna.space">Author's site</a> •
+  <a href="https://github.com/ysskrishna/markdown-convert-mcp/issues">Report Issues</a>
+</p>
