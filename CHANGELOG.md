@@ -4,6 +4,23 @@ All notable changes to `@ysskrishna/markdown-convert-mcp` are documented here.
 
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2026-11-15
+
+### Added
+
+- README installation guide with host-specific `<details>` sections, MCP Registry badge, and maintainer footer
+- `scripts/validate-release.sh` to keep `package.json`, `server.json`, and `src/server.ts` versions in sync
+- `SECURITY.md` and `docs/contributing/release-state.md` for maintainers
+- OpenClaw distribution: `openclaw.plugin.json`, `.mcp.json`, `.cursor-plugin/plugin.json`, `assets/icon.png`, and `skills/markdown-convert/SKILL.md`
+- `scripts/publish_clawhub.py` for ClawHub `bundle-plugin` publishes
+- AGENTS.md **Releases** section and expanded DEVELOPMENT releasing steps (npm, MCP Registry, ClawHub)
+
+### Changed
+
+- Synced MCP server version in `src/server.ts` with package and registry metadata
+
+[1.2.0]: https://github.com/ysskrishna/markdown-convert-mcp/compare/v1.1.1...v1.2.0
+
 ## [1.1.1] - 2026-11-14
 
 ### Added

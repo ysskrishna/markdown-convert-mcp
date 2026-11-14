@@ -34,6 +34,9 @@ npm ci && npm run lint && npm run typecheck && npm test && npm run build
 | `npm run test:e2e:jira` | Jira E2E only |
 | `npm run build` | Compile `src/` → `dist/` |
 | `make release` | Tag `v$(version)` from `package.json` and push (triggers CI publish) |
+| `bash scripts/validate-release.sh` | Verify release version sync across manifests |
+| `python3 scripts/publish_clawhub.py plan` | ClawHub bundle sync status |
+| `python3 scripts/publish_clawhub.py publish` | Publish OpenClaw bundle to ClawHub |
 
 
 ## Stack
@@ -83,6 +86,8 @@ Example **Cursor** / **Claude Desktop** config (use an absolute path):
 
 Restart the host or reload MCP after config changes.
 
+**MCP Inspector:** `npx @modelcontextprotocol/inspector npx -y @ysskrishna/markdown-convert-mcp` (or `node` on `dist/index.js` after `npm run build`).
+
 ## Testing
 
 - **Unit tests (no credentials):** `npm test`
@@ -111,15 +116,45 @@ Publish uses the GitHub **`prod`** environment and [npm trusted publishing](http
 
 Package: [`@ysskrishna/markdown-convert-mcp`](https://www.npmjs.com/package/@ysskrishna/markdown-convert-mcp)
 
-1. Bump `version` in `package.json` and match `src/server.ts` `McpServer` version.
-2. Add a `## [x.y.z]` section to `CHANGELOG.md` (required by **Create Release**).
-3. Run the full checkpoint locally.
-4. Merge to `main`.
-5. Tag and push:
+Version sync (all must match before tagging):
+
+- `package.json` `version`
+- `package-lock.json` root and `packages[""].version`
+- `server.json` `version` and `packages[0].version`
+- `src/server.ts` `McpServer` `version`
+- `openclaw.plugin.json` `version`
+- `.cursor-plugin/plugin.json` `version`
+
+Run `bash scripts/validate-release.sh` to verify the list above.
+
+1. Bump versions and update `CHANGELOG.md` (required by **Create Release**).
+2. Run the full checkpoint locally.
+3. Merge to `main`.
+4. Tag and push:
 
 ```bash
 make release
 ```
+
+### After npm publish (same tagged commit)
+
+**MCP Registry** (publish after npm):
+
+```bash
+mcp-publisher login github
+mcp-publisher publish
+```
+
+**ClawHub** (OpenClaw bundle-plugin):
+
+```bash
+python3 scripts/publish_clawhub.py plan
+python3 scripts/publish_clawhub.py publish
+```
+
+Requires the `clawhub` CLI and a logged-in session. The script stages `skills/`, `assets/`, `openclaw.plugin.json`, `.mcp.json`, and `.cursor-plugin/plugin.json` only (not the full repo).
+
+Update [docs/contributing/release-state.md](docs/contributing/release-state.md) when npm, registry, and ClawHub are live.
 
 ## Troubleshooting
 
