@@ -20,6 +20,11 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and thi
 ### Changed
 
 - Synced MCP server version in `src/server.ts` with package and registry metadata
+- npm package now includes `skills/` so `openclaw.plugin.json` and `index.js` resolve the skill
+- `scripts/validate-release.sh` also checks `package-lock.json` and `.claude-plugin/marketplace.json` versions
+- Plugin `.mcp.json` uses `@latest` to avoid an `npx` exit-127 failure when the host runs inside this repo
+- README states which plugins register the MCP server (Claude Code does, Codex does not)
+- `scripts/publish_clawhub.py` fails on a skill folder without a slug mapping instead of skipping it
 
 [1.2.0]: https://github.com/ysskrishna/markdown-convert-mcp/compare/v1.1.1...v1.2.0
 
