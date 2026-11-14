@@ -88,6 +88,8 @@ Example **Cursor** / **Claude Desktop** config (use an absolute path):
 
 Restart the host or reload MCP after config changes.
 
+**Plugin `.mcp.json`:** it uses `@latest` on purpose. Plain `npx -y @ysskrishna/markdown-convert-mcp` fails with exit 127 when the host's working directory is this repo, because npx resolves the local package and its own bin is not on `PATH`. The `@latest` spec forces a registry fetch. It does mean plugin installs track the newest npm release.
+
 **MCP Inspector:** `npx @modelcontextprotocol/inspector npx -y @ysskrishna/markdown-convert-mcp` (or `node` on `dist/index.js` after `npm run build`).
 
 ## Testing
