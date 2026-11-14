@@ -21,6 +21,7 @@
     "plugin.json",
     "gemini-extension.json",
     "skills.sh.json",
+    "skills",
     "assets/icon.png"
   ],
   "openclaw": {

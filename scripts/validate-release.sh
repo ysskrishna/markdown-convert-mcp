@@ -41,4 +41,14 @@ compare "package.json vs skills/markdown-convert/SKILL.md" "$pkg_ver" "$skill_ve
 pkg_version_in_server_json="$(node -p "require('./server.json').packages[0].version")"
 compare "server.json packages[0].version" "$pkg_ver" "$pkg_version_in_server_json"
 
+lock_ver="$(node -p "require('./package-lock.json').version")"
+lock_root_ver="$(node -p "require('./package-lock.json').packages[''].version")"
+compare "package.json vs package-lock.json" "$pkg_ver" "$lock_ver"
+compare "package.json vs package-lock.json packages[\"\"]" "$pkg_ver" "$lock_root_ver"
+
+mkt_meta_ver="$(node -p "require('./.claude-plugin/marketplace.json').metadata.version")"
+mkt_bundle_ver="$(node -p "require('./.claude-plugin/marketplace.json').plugins.find((p) => p.name === 'markdown-convert-mcp').version")"
+compare "package.json vs .claude-plugin/marketplace.json metadata" "$pkg_ver" "$mkt_meta_ver"
+compare "package.json vs .claude-plugin/marketplace.json bundle" "$pkg_ver" "$mkt_bundle_ver"
+
 echo "release versions OK: $pkg_ver"
