@@ -1,0 +1,21 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.ysskrishna/markdown-convert-mcp",
+  "title": "Markdown Convert MCP",
+  "description": "MCP server converting Markdown to Slack, Teams, Jira, and plain text for agents.",
+  "repository": {
+    "url": "https://github.com/ysskrishna/markdown-convert-mcp",
+    "source": "github"
+  },
+  "version": "1.1.1",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@ysskrishna/markdown-convert-mcp",
+      "version": "1.1.1",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ]
+}
