@@ -24,7 +24,8 @@ OWNER_HANDLE = "ysskrishna"
 PACKAGE_NAME = "@ysskrishna/markdown-convert-mcp"
 PACKAGE_DISPLAY_NAME = "Markdown Convert MCP"
 PACKAGE_TOPICS = "mcp,markdown,slack,jira,agent-tools"
-SKILL_CATEGORIES = "agents,tools"
+# ClawHub browse slugs. "tools" is rejected; agents,knowledge is the set that publishes.
+SKILL_CATEGORIES = "agents,knowledge"
 REGISTRY_URL = "https://clawhub.ai"
 RATE_LIMIT_RETRIES = 5
 BUNDLE_HOST_MANIFEST = (".cursor-plugin", "plugin.json")
