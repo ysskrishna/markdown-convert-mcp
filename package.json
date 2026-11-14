@@ -15,8 +15,18 @@
     "LICENSE",
     "README.md",
     "CHANGELOG.md",
-    "server.json"
+    "server.json",
+    "openclaw.plugin.json"
   ],
+  "openclaw": {
+    "compat": {
+      "pluginApi": ">=2026.3.24-beta.2",
+      "minGatewayVersion": "2026.3.24-beta.2"
+    },
+    "build": {
+      "openclawVersion": "2026.11.2"
+    }
+  },
   "engines": {
     "node": ">=22"
   },
