@@ -311,6 +311,8 @@ Each tool accepts `{ "markdown": "<source>" }` and returns converted text. Pick 
 | `markdown_to_jira`      | ADF JSON string                                       | Jira Cloud REST v3 rich-text fields; Atlassian MCP | Wiki markup / Server v2 API; this tool does not create issues                    |
 | `markdown_to_plaintext` | Plain text                                            | Any destination that needs stripped text      | —                                                                                |
 
+Example inputs and real outputs for every tool are in [docs/tools.md](docs/tools.md).
+
 **Limits:** Whitespace-only input returns success with an empty string. Input over 200,000 characters returns a tool error (`isError: true`), not a transport failure. Slack may truncate around 40k characters in the `text` field.
 
 ## Built and maintained by
