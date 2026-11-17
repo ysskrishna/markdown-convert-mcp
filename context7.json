@@ -1,0 +1,38 @@
+{
+  "$schema": "https://context7.com/schema/context7.json",
+  "projectTitle": "Markdown Convert MCP",
+  "description": "MCP server (npm @ysskrishna/markdown-convert-mcp) that converts CommonMark/GFM Markdown to Slack mrkdwn, Microsoft Teams HTML, Jira Cloud ADF JSON and plain text through four tools, plus a companion agent skill.",
+  "excludeFolders": [
+    "archive",
+    "archived",
+    "old",
+    "deprecated",
+    "legacy",
+    "tests",
+    ".github",
+    "assets",
+    "media",
+    "scripts",
+    "src",
+    "docs/contributing"
+  ],
+  "excludeFiles": [
+    "CHANGELOG.md",
+    "changelog.md",
+    "LICENSE.md",
+    "license.md",
+    "CODE_OF_CONDUCT.md",
+    "NEWS.md",
+    "CONTRIBUTING.md",
+    "SECURITY.md",
+    "AGENTS.md",
+    "DEVELOPMENT.md",
+    "E2E-TESTING.md"
+  ],
+  "rules": [
+    "Run the server with npx -y @ysskrishna/markdown-convert-mcp (Node.js 22 or later); it speaks MCP over stdio.",
+    "Every tool takes one argument, markdown (string). Pick the tool by destination: markdown_to_slack, markdown_to_teams, markdown_to_jira, markdown_to_plaintext.",
+    "The tools only convert text; they never send Slack or Teams messages or create Jira issues.",
+    "Input over 200,000 characters returns a tool error (isError: true); whitespace-only input returns an empty string."
+  ]
+}
