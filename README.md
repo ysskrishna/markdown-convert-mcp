@@ -6,6 +6,8 @@
 [![License: MIT](https://img.shields.io/github/license/ysskrishna/markdown-convert-mcp.svg?style=flat-square)](LICENSE)
 [![MCP Registry](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fregistry.modelcontextprotocol.io%2Fv0.1%2Fservers%2Fio.github.ysskrishna%252Fmarkdown-convert-mcp%2Fversions%2Flatest&query=%24.server.version&label=MCP%20Registry&logo=modelcontextprotocol&style=flat-square)](https://registry.modelcontextprotocol.io/?q=io.github.ysskrishna%2Fmarkdown-convert-mcp)
 [![npm downloads](https://img.shields.io/npm/dm/@ysskrishna/markdown-convert-mcp.svg?style=flat-square)](https://www.npmjs.com/package/@ysskrishna/markdown-convert-mcp)
+[![Context7](https://img.shields.io/badge/Context7-docs-18181B?style=flat-square)](https://context7.com/ysskrishna/markdown-convert-mcp)
+[![Ask DeepWiki](https://img.shields.io/badge/DeepWiki-ask-18181B?style=flat-square)](https://deepwiki.com/ysskrishna/markdown-convert-mcp)
 
 Convert Markdown to Slack, Microsoft Teams, Jira, and plain text with an MCP server. Supports CommonMark and GitHub-Flavored Markdown (GFM) and provides platform-specific formatting for AI agents, LLMs, and automation workflows.
 
