@@ -111,7 +111,7 @@ npm run test:e2e:jira         # Jira only
 | Workflow | Trigger | Purpose |
 |----------|---------|---------|
 | `ci.yml` | PR and push to `main` | lint, typecheck, test, build |
-| `create-release.yml` | push tag `v*` | GitHub Release from `CHANGELOG.md` |
+| `create-release.yml` | push tag `v*.*.*` | GitHub Release from the matching nonempty `CHANGELOG.md` section using `ysskrishna/changelog-release-action@v1`, titled `Release <tag>` |
 | `publish-npm.yml` | push tag `v*`, release published, manual dispatch | validate, test, `npm publish` via OIDC |
 
 Publish uses the GitHub **`prod`** environment and [npm trusted publishing](https://docs.npmjs.com/trusted-publishers) — no `NPM_TOKEN` secret in CI.
